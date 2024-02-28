@@ -184,8 +184,8 @@ build_mesh <-
           # define the mcp enclosing these elements, which will have the selected
           # ... node at its heart and provide a unique id for this polygon
           # ... BASED ON NODE...
-          poly <- rgeos::gConvexHull(element_xy_sp, id = node)
-
+          # poly <- rgeos::gConvexHull(element_xy_sp, id = node)
+          poly <- sf::st_convex_hull(element_xy_sp)  # how do we preserve the IDs?
           # return the polygon
           # return(poly)
         } # close if(nprisms > 2){
